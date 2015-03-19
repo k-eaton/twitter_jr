@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   include BCrypt
 validates :email, :handle, presence:true
-validate :orrect_email_format
+validate :correct_email_format
 # getter method:
   def password
     @password ||= Password.new(password_hash)

@@ -1,3 +1,11 @@
+get '/' do
+  if current_user
+   erb :test
+  else
+    redirect "/users/new"
+  end
+end
+
 get '/users/new' do
   @user=User.new
   erb :signup
@@ -12,7 +20,6 @@ post '/users' do
     erb :signup
   end
 end
-
 get '/sessions/new' do
   @user=User.new
   erb :signin
@@ -27,4 +34,10 @@ post '/sessions' do
     @errors="your login credentials failed"
     erb :signin
   end
+end
+
+
+delete '/sessions/logout' do
+  session[:id] = nil
+  redirect '/sessions/new'
 end

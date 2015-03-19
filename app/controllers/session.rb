@@ -6,20 +6,6 @@ get '/' do
   end
 end
 
-get '/users/new' do
-  @user=User.new
-  erb :signup
-end
-
-post '/users' do
-  @user = User.new(params[:user])
-  if @user.save
-    session[:id] = @user.id
-    redirect "/"
-  else
-    erb :signup
-  end
-end
 get '/sessions/new' do
   @user=User.new
   erb :signin

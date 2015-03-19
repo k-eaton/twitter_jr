@@ -2,13 +2,13 @@
 
   <h1>Welcome to Twitter Jr.</h1>
   <h2>Would you like to make an account?</h2>
-
-
-  <div class="errors">
+<div class="errors">
     <% if @user.errors %>
     <%=@user.errors.full_messages.to_sentence %>
     <% end %>
   </div>
+
+
 
   <form action="/users" method="post">
     <div><label>Name</label>

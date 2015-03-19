@@ -1,0 +1,18 @@
+<h1>Profile</h1>
+  <div class="profile_name">
+    <%= @user.name %>
+  </div>
+
+  <div class="profile_handle">
+    <%= @user.handle %>
+  </div>
+
+  <div class="profile_tweet">
+    <ul>
+    <% @user.tweets.each do |tweet| %>
+      <li><%= tweet.content %></li>
+    <% end %>
+    </ul>
+  </div>
+
+

@@ -26,3 +26,8 @@ group :test, :development do
   gem 'factory_girl'
   gem 'faker'
 end
+
+# Login
+
+gem 'bcrypt-ruby'
+

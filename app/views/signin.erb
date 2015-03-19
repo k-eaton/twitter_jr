@@ -1,0 +1,23 @@
+<div class="container">
+
+  <h1>Welcome to Twitter Jr.</h1>
+  <h2>Would you like to sign in?</h2>
+
+<div class="errors">
+    <% if @errors %>
+    <%=@errors %>
+    <% end %>
+  </div>
+
+
+  <form action="/sessions" method="post">
+      <div><label>Handle</label>
+        <input type="text" name="handle" /></div>
+          <div><label>Password</label>
+            <input type="password" name="password" /></div>
+            <input type="submit" value="sign in, Bitches!" />
+          </form>
+
+
+        </div>
+

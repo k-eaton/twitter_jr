@@ -9,7 +9,7 @@
 
   <div class="profile_tweet">
     <ul>
-    <% @user.tweets.each do |tweet| %>
+    <% @user.tweets.reverse_each do |tweet| %>
       <li><%= tweet.content %></li>
     <% end %>
     </ul>

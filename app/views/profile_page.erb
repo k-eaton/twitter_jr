@@ -11,7 +11,9 @@
     Tweets:
     <ul>
     <% @user.tweets.reverse_each do |tweet| %>
+
       <li><%= tweet.created_at.strftime('%b %d') %> - <%= tweet.content %></li>
+
     <% end %>
     </ul>
   </div>

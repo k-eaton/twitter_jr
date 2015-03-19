@@ -1,0 +1,8 @@
+<% if @error %>
+  <div class="error_message"><%= @error %></div>
+<% end %>
+
+<form action="/users/<%= @user.id %>/tweet" method="post">
+  <input type="text" name="content" value="<%= @content %>">
+  <input type="submit" value="Tweet!">
+</form>

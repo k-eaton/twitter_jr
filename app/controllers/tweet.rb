@@ -25,3 +25,9 @@ get '/tweets/:id/retweet' do
   @content = "#{tweet.content} @#{tweet.user.handle}"
   erb :'tweets/new'
 end
+
+get '/tweets/:id/reply' do
+  tweet = Tweet.find(params[:id])
+  @content = "@#{tweet.user.handle} "
+  erb :'tweets/new'
+end

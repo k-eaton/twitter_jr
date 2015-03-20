@@ -1,6 +1,7 @@
 
     <% if current_user && current_user.id != @user.id %>
-    <li> <%=tweet.favorites.length%><form action = "/tweets/<%=tweet.id%>/favorite" method="post">
-      <input type="submit" value= "<%= is_not_favorited?(tweet) ? 'Like!!': 'Unlike'%>">
-    </form></li>
+  <%=tweet.favorites.length%> <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+  <form action = "/tweets/<%=tweet.id%>/favorite" method="post">
+      <button type="submit" class="btn btn-warning"> <%= is_not_favorited?(tweet) ? 'Like!!': 'Unlike'%></button>
+    </form>
     <%end%>

@@ -1,7 +1,7 @@
 <div class="container">
 
-  <h1>Welcome to Twitter Jr.</h1>
-  <h2>Would you like to make an account?</h2>
+  <h1>142 Chars might consider letting you join</h1>
+  <h2>Would you like to try?</h2>
 <div class="errors">
     <% if @user.errors %>
     <%=@user.errors.full_messages.to_sentence %>
@@ -19,7 +19,7 @@
           <input type="email" name="user[email]" /></div>
           <div><label>Password</label>
             <input type="password" name="user[password]" /></div>
-            <input type="submit" value="sign up, Bitches!" />
+            <button type="submit" class="btn btn-success">sign up, minions!</button>
           </form>
 
 

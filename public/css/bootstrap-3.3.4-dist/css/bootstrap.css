@@ -251,7 +251,7 @@ th {
   }
   .label {
     border: 1px solid #000;
-  }
+   }
   .table {
     border-collapse: collapse !important;
   }
@@ -4748,7 +4748,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   font-size: 75%;
   font-weight: bold;
   line-height: 1;
-  color: #fff;
+  color: #fff !important;
   text-align: center;
   white-space: nowrap;
   vertical-align: baseline;

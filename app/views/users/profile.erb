@@ -1,4 +1,4 @@
-<h1>Profile</h1>
+<h1>@<%= @user.handle %></h1>
 
 <div class="profile_image">
   <img src="<%= @user.image %>" width="150px" height="150px" />
@@ -12,20 +12,32 @@
   Handle: @<%= @user.handle %>
 </div>
 
-<% if current_user && current_user.id == @user.id %>
-  <a href="/users/edit">Edit Profile</a>
-<%end%>
+
 
 <div class="profile_links">
   <ul>
 
-    <li>Followers: <a href="/users/<%= @user.id %>/followers"><%=@user.followers.count %></a></li>
-    <li>Followees: <a href="/users/<%= @user.id %>/followees"><%=@user.followees.count %></a></li>
-    <li> <a href="/users/find">Find me some connections- I'm lonely</a></li>
+    <li><button class="btn btn-primary" type="button">Followers  <span class="badge"><a href="/users/<%= @user.id %>/followers"><%=@user.followers.count %></a></span></button></li>
+    <li><button class="btn btn-primary" type="button">Followees <span class="badge"><a href="/users/<%= @user.id %>/followees"><%=@user.followees.count %></a><span></button></li>
+
+    <li> <button type="button" class="btn btn-default">
+        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+          <a href="/users/find">i'm  lonely </a></button>
+    </li>
+
     <% if current_user && current_user.id != @user.id %>
     <li><form action = "/users/<%=@user.id%>" method="post">
-      <input type="submit" value= "<%= is_not_a_follower?(@user) ? 'Follow Me!!': 'Unfollow'%>">
-    </form></li>
+      <button type="submit" class="btn btn-primary"><%= is_not_a_follower?(@user) ? 'Follow Me!!': 'Unfollow'%></button>
+    </form>
+    </li>
+    <%end%>
+
+
+    <% if current_user && current_user.id == @user.id %>
+    <li> <button type="button" class="btn btn-default">
+        <span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span>
+      <a href="/users/edit">Edit Profile</a> </button>
+    </li>
     <%end%>
   </ul>
 </div>

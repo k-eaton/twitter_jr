@@ -1,16 +1,18 @@
   <nav class="navbar navbar-default">
   <div>
   <span class="home-link"><a href="/">142 chars</a></span>
-  <h6>..cos 140 isn't hot enough!!</h6>
 
-  <ul>
+
+  <ul class="nav nav-pills">
   <% if logged_in? %>
-    <li><a href="/users/<%= current_user.id %>">my profile</a></li>
+    <li><a href="/users/<%= current_user.id %>"> my profile</a></li>
     <li><a href="/tweets/new">new tweet</a></li>
+
     <li><form action="/sessions/logout" method="post" >
-    <input type="hidden" name="_method" value="delete">
-    <input type="submit" value="logout">
-    </form></li>
+      <input type="hidden" name="_method" value="delete">
+      <button type="submit" class="btn btn-danger">logout</button>
+      </form>
+    </li>
     <% else %>
     <li><a href="/sessions/new">Log in</a></li>
     <li><a href="/users/new">Sign up</a></li>

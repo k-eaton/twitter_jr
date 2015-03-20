@@ -1,15 +1,19 @@
+<div class="tweet_box">
 <div>
   <img src="<%= tweet.user.image %>" width="50px" height="50px" />
 </div>
 
-Date: <%= tweet.created_at.strftime('%b %d') %><br />
+<div>Date: <%= tweet.created_at.strftime('%b %d') %></div>
 
-By: @<%= tweet.user.handle %><br />
+<div>By: <a href="/users/<%=tweet.user_id%>">@<%= tweet.user.handle %></a></div>
 
-<%= erb :_favorites, locals: {tweet: tweet} %> <br />
 
-<%= tweet.content %><br />
+<div><%= erb :_favorites, locals: {tweet: tweet} %> </div>
+
+<div> <%= tweet.content %></div>
 
 <% if logged_in? %>
-  <a href='/tweets/<%= tweet.id %>/reply'>Reply</a> <a href='/tweets/<%= tweet.id %>/retweet'>Retweet</a>
+  <button class="btn btn-default" ><a href='/tweets/<%= tweet.id %>/reply'>Reply</a> </button>
+  <button class="btn btn-default"><a href='/tweets/<%= tweet.id %>/retweet'>Retweet</a></button>
 <% end %>
+</div>

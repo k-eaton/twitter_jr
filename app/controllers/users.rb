@@ -26,5 +26,6 @@ get '/users/:id/followees' do
 end
 
 get '/users/:id/followers' do
-  "We made it mofo!"
+  @user=User.where(id:params[:id])[0]
+  erb :show_followers
 end

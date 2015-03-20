@@ -1,4 +1,4 @@
 <h1>Your feed</h1>
 <ul><% current_user.followee_tweets.each do |tweet| %>
-  <li><%= tweet.created_at.strftime('%b %d') %> - <%= tweet.content %> by @<%= tweet.user.handle %></li>
+  <li><%= show_tweet(tweet) %></li>
 <% end %></ul>

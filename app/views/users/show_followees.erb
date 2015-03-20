@@ -2,7 +2,7 @@
   <h1>You are slavishly following these peoples..</h1>
   <ul>
     <%@user.followees.each do |followee|%>
-    <li> <a href="/users/<%=followee.id%>"><%=followee.handle%></a></li>
+    <li> <a href="/users/<%=followee.id%>">@<%=followee.handle%></a></li>
     <%end %>
   </ul>
 </div>

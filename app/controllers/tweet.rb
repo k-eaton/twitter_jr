@@ -31,3 +31,9 @@ get '/tweets/:id/reply' do
   @content = "@#{tweet.user.handle} "
   erb :'tweets/new'
 end
+
+post '/tweets/:id/favorite' do 
+ @tweet=Tweet.where(id: params[:id])[0]
+ @tweet.toggle_favorite(current_user)
+ redirect "/users/#{@tweet.user_id}"
+end 

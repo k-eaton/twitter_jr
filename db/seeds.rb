@@ -1,7 +1,7 @@
 require 'faker'
 
 5.times do
-  user = User.create(name: Faker::Name.name, email: Faker::Internet.email, handle: Faker::Name.first_name.downcase)
+  user = User.create(name: Faker::Name.name, email: Faker::Internet.email, handle: Faker::Name.first_name.downcase, image: Faker::Avatar.image(slug = nil, size = '300x300', format = 'png'))
 
   5.times {user.tweets.create(content: Faker::Lorem.sentence)}
 end

@@ -1,6 +1,10 @@
 class User < ActiveRecord::Base
 
   has_many :tweets
+
+  has_many :favorites
+  has_many :favorite_tweets, :through => :favorites
+
   has_many :actively_following, :class_name => "Follow", :foreign_key => "user_id"
   has_many :being_followed, :class_name => "Follow", :foreign_key => "subscribed_to_id"
   has_many :followees, :through => :actively_following

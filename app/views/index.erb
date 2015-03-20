@@ -1,4 +1,4 @@
 <h1>Your feed</h1>
 <ul><% current_user.followee_tweets.each do |tweet| %>
-  <li><%= show_tweet(tweet) %></li>
+  <li><%= erb :_individual_tweet, locals: {tweet: tweet} %></li>
 <% end %></ul>

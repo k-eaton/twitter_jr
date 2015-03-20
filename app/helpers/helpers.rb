@@ -14,4 +14,8 @@ helpers do
      <a href='/tweets/#{tweet.id}/reply'>Reply</a> <a href='/tweets/#{tweet.id}/retweet'>Retweet</a>"
   end
 
+  def is_not_a_follower?(profile_user)
+   Follow.where(user_id: current_user.id, subscribed_to_id: profile_user.id).empty?
+  end
+
 end

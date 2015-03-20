@@ -36,12 +36,12 @@ end
 
 get '/users/:id/followees' do
   @user=User.where(id:params[:id])[0]
-  erb :show_followees
+  erb :"users/show_followees"
 end
 
 get '/users/:id/followers' do
   @user=User.where(id:params[:id])[0]
-  erb :show_followers
+  erb :"users/show_followers"
 end
 
 post '/users/:id' do

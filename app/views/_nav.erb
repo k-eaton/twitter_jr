@@ -1,0 +1,20 @@
+  <nav class="bg-bar">
+  <div>
+  <span class="home-link"><a href="/">Twitter, Jr.</a></span>
+
+  <ul>
+  <% if logged_in? %>
+    <li><a href="/users/<%= current_user.id %>">my profile</a></li>
+    <li><a href="/tweets/new">new tweet</a></li>
+    <li><form action="/sessions/logout" method="post" >
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="logout">
+    </form></li>
+    <% else %>
+    <li><a href="/sessions/new">Log in</a></li>
+    <li><a href="/users/new">Sign up</a></li>
+    <%end%>
+    </ul>
+
+    </div>
+    </nav>

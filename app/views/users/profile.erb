@@ -1,19 +1,29 @@
 <h1>Profile</h1>
-  <div class="profile_name">
-    Name: <%= @user.name %>
-  </div>
+<div class="profile_name">
+  Name: <%= @user.name %>
+</div>
 
-  <div class="profile_handle">
-    Handle: @<%= @user.handle %>
-  </div>
+<div class="profile_handle">
+  Handle: @<%= @user.handle %>
+</div>
 
-  <div class="profile_tweet">
-    Tweets:
-    <ul>
+<div class="profile_links">
+  <ul>
+    <li>Followers: <a href="/users/<%= @user.id %>/followers"><%=@user.followers.count %></a></li>
+    <li>Followees: <a href="/users/<%= @user.id %>/followees"><%=@user.followees.count %></a></li>
+    <li><form action = "/users/<%=@user.id%>" method="post">
+      <input type="submit" value="Follow Me!!">
+    </form></li>
+  </ul>
+</div>
+
+<div class="profile_tweet">
+  Tweets:
+  <ul>
     <% @user.tweets.reverse_each do |tweet| %>
-      <li><%= show_tweet(tweet) %></li>
+    <li><%= show_tweet(tweet) %></li>
     <% end %>
-    </ul>
-  </div>
+  </ul>
+</div>
 
 

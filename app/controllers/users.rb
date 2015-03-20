@@ -30,6 +30,8 @@ get '/users/:id/followers' do
   erb :show_followers
 end
 
+
+# This should be updated to a toggle html button & a toggle_follow! method in follow model
 post '/users/:id' do
   @user=User.where(id: params[:id])[0]
     Follow.create(user_id: session[:id], subscribed_to_id: @user.id)

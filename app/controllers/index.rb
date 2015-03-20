@@ -1,4 +1,3 @@
 get '/' do
-  erb :index
+  logged_in? ? (erb :index) : (erb :signin)
 end
-

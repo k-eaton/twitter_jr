@@ -2,7 +2,7 @@
 
 get '/users/new' do
 @user=User.new
-  erb :signup
+  erb :'users/signup'
 end
 
 post '/users/new' do
@@ -11,7 +11,7 @@ post '/users/new' do
     session[:id] = @user.id
     redirect "/"
   else
-    erb :signup
+    erb :'users/signup'
   end
 end
 
@@ -31,5 +31,5 @@ end
 
 get '/users/:id' do
   @user = User.find(params[:id])
-  erb :profile_page
+  erb :'users/profile'
 end

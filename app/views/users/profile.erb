@@ -1,0 +1,21 @@
+<h1>Profile</h1>
+  <div class="profile_name">
+    Name: <%= @user.name %>
+  </div>
+
+  <div class="profile_handle">
+    Handle: @<%= @user.handle %>
+  </div>
+
+  <div class="profile_tweet">
+    Tweets:
+    <ul>
+    <% @user.tweets.reverse_each do |tweet| %>
+
+      <li><%= tweet.created_at.strftime('%b %d') %> - <%= tweet.content %></li>
+
+    <% end %>
+    </ul>
+  </div>
+
+

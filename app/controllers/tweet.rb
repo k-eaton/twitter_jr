@@ -1,5 +1,5 @@
 get '/tweets/new' do
-  erb :'tweet/new'
+  erb :'tweets/new'
 end
 
 post '/tweets/new' do
@@ -11,17 +11,17 @@ post '/tweets/new' do
     @user = User.find(current_user.id)
     @content = params[:content]
     @error = tweet.errors.full_messages.to_sentence
-    erb :'tweet/new'
+    erb :'tweets/new'
   end
 end
 
 get '/tweets/:id' do
   @tweet = Tweet.find(params[:id])
-  erb :'tweet/show'
+  erb :'tweets/show'
 end
 
 get '/tweets/:id/retweet' do
   tweet = Tweet.find(params[:id])
   @content = "#{tweet.content} @#{tweet.user.handle}"
-  erb :'tweet/new'
+  erb :'tweets/new'
 end

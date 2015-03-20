@@ -28,5 +28,13 @@ class User < ActiveRecord::Base
     self.errors.add :base, "Incorrect email address format" unless /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i.match(self.email)
   end
 
-
+  def followee_tweets
+    tweets = []
+    self.followees.each do |followee|
+      followee.tweets.each do |tweet|
+        tweets << tweet
+      end
+    end
+    tweets.sort { |x, y| y.created_at <=> x.created_at }
+  end
 end

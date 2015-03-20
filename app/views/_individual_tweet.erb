@@ -1,3 +1,7 @@
+<div>
+  <img src="<%= tweet.user.image %>" width="50px" height="50px" />
+</div>
+
 Date: <%= tweet.created_at.strftime('%b %d') %><br />
 
 By: @<%= tweet.user.handle %><br />
@@ -5,4 +9,7 @@ By: @<%= tweet.user.handle %><br />
 <%= erb :_favorites, locals: {tweet: tweet} %> <br />
 
 <%= tweet.content %><br />
-<a href='/tweets/<%= tweet.id %>/reply'>Reply</a> <a href='/tweets/<%= tweet.id %>/retweet'>Retweet</a>
+
+<% if logged_in? %>
+  <a href='/tweets/<%= tweet.id %>/reply'>Reply</a> <a href='/tweets/<%= tweet.id %>/retweet'>Retweet</a>
+<% end %>

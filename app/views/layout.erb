@@ -10,21 +10,29 @@
   <title></title>
 </head>
 <body>
-  <a href="/">home page</a>
-  <div class="nav_links">
-    <% if logged_in? %>
-      <a href="/users/<%= current_user.id %>">my profile</a> 
-      <a href="/tweets/new">new tweet</a> 
-      <form action="/sessions/logout" method="post" >
-        <input type="hidden" name="_method" value="delete">
-        <input type="submit" value="logout">
-      </form>
-    <% else %>
-      <a href="/sessions/new">Log in</a>
-      <a href="/users/new">Sign up</a>
-    <%end%>
-  </div>
+  <nav class="bg-bar">
+    <div>
+      <span class="home-link"><a href="/">Twitter, Jr.</a></span>
 
-  <%= yield %>
+      <ul>
+      <% if logged_in? %>
+        <li><a href="/users/<%= current_user.id %>">my profile</a></li>
+        <li><a href="/tweets/new">new tweet</a></li>
+        <li><form action="/sessions/logout" method="post" >
+          <input type="hidden" name="_method" value="delete">
+          <input type="submit" value="logout">
+        </form></li>
+      <% else %>
+        <li><a href="/sessions/new">Log in</a></li>
+        <li><a href="/users/new">Sign up</a></li>
+      <%end%>
+      </ul>
+
+    </div>
+  </nav>
+
+  <main>
+    <%= yield %>
+  </main>
 </body>
 </html>

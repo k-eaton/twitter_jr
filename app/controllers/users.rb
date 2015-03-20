@@ -5,7 +5,7 @@ get '/users/new' do
   erb :signup
 end
 
-post '/users' do
+post '/users/new' do
   @user = User.new(params[:user])
   if @user.save
     session[:id] = @user.id
@@ -15,8 +15,21 @@ post '/users' do
   end
 end
 
+get '/users/find' do
+  erb :'users/find'
+end
+
+post '/users/find' do
+  @user = User.where(handle: params[:handle].downcase).first
+  if @user
+    redirect "/users/#{@user.id}"
+  else
+    @error = "User not found"
+    erb :'users/find'
+  end
+end
+
 get '/users/:id' do
   @user = User.find(params[:id])
   erb :profile_page
 end
-

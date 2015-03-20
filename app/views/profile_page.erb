@@ -11,6 +11,10 @@
     <ul>
       <li>Followers: <a href="/users/<%= @user.id %>/followers"><%=@user.followers.count %></a></li>
       <li>Followees: <a href="/users/<%= @user.id %>/followees"><%=@user.followees.count %></a></li>
+      <li><form action = "/users/<%=@user.id%>" method="post">
+
+        <input type="submit" value="Follow Me!!">
+      </form></li>
     </ul>
   </div>
 

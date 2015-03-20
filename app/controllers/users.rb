@@ -20,3 +20,11 @@ get '/users/:id' do
   erb :profile_page
 end
 
+get '/users/:id/followees' do
+  @user=User.where(id:params[:id])[0]
+  erb :show_followees
+end
+
+get '/users/:id/followers' do
+  "We made it mofo!"
+end

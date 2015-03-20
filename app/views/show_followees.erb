@@ -1,0 +1,7 @@
+<div class="container">
+  <ul>
+    <%@user.followees.each do |followee|%>
+    <li> <a href="/users/<%=followee.id%>"><%=followee.handle%></a></li>
+    <%end %>
+  </ul>
+</div>

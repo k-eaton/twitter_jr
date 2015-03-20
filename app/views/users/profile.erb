@@ -12,6 +12,10 @@
   Handle: @<%= @user.handle %>
 </div>
 
+<% if current_user && current_user.id == @user.id %>
+  <a href="/users/edit">Edit Profile</a>
+<%end%>
+
 <div class="profile_links">
   <ul>
 

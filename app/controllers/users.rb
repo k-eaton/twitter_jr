@@ -15,6 +15,25 @@ post '/users/new' do
   end
 end
 
+get '/users/edit' do
+  erb :'users/edit'
+end
+
+
+post '/users/edit' do
+  @user = current_user
+  @user.name = params[:user][:name]
+  @user.handle = params[:user][:handle]
+  @user.email = params[:user][:email]
+  @user.password = params[:user][:password]
+  if @user.save
+    session[:id] = @user.id
+    redirect "/users/#{@user.id}"
+  else
+    erb :'users/edit'
+  end
+end
+
 get '/users/find' do
   @users=User.all
   erb :'users/find'

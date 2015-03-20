@@ -1,0 +1,33 @@
+<h1>Edit Profile</h1>
+
+<% if logged_in? %>
+
+  <div class="profile_image">
+    <img src="<%= current_user.image %>" width="150px" height="150px" />
+  </div>
+
+  <form action="/users/edit" method="post">
+    <div><label>Name</label>
+      <input type="text" name="user[name]" value="<%= current_user.name %>" /></div>
+      <div><label>Handle</label>
+        <input type="text" name="user[handle]" value="<%= current_user.handle %>" /></div>
+        <div><label>Email</label>
+          <input type="email" name="user[email]" value="<%= current_user.email %>" /></div>
+          <div><label>Password</label>
+            <input type="password" name="user[password]" /></div>
+            <input type="submit" value="Update profile" />
+          </form>
+
+<% else %>
+  You are not logged in
+<% end %>
+
+
+
+
+
+
+
+
+
+

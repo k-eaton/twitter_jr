@@ -1,0 +1,6 @@
+Date: <%= tweet.created_at.strftime('%b %d') %><br />
+
+By: @<%= tweet.user.handle %><br />
+
+<%= tweet.content %><br />
+<a href='/tweets/<%= tweet.id %>/reply'>Reply</a> <a href='/tweets/<%= tweet.id %>/retweet'>Retweet</a>

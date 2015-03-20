@@ -21,7 +21,7 @@
   Tweets:
   <ul>
     <% @user.tweets.reverse_each do |tweet| %>
-    <li><%= show_tweet(tweet) %></li>
+    <li><%= erb :_individual_tweet, locals: {tweet: tweet} %></li>
     <% end %>
   </ul>
 </div>

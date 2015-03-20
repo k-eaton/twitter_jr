@@ -18,14 +18,15 @@
   <title></title>
 </head>
 <body>
-  <div class="nav_links">
+<div class="nav_links">
   <% if logged_in? %>
-  <form action="/sessions/logout" method="post" >
-    <input type="hidden" name="_method" value="delete">
-  <input type="submit" value="logout">
-  </form>
-</div>
+    <a href="/users/<%= current_user.id %>">my profile</a>
+      <form action="/sessions/logout" method="post" >
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="logout">
+      </form>
   <%end%>
+</div>
 
   <%= yield %>
 </body>

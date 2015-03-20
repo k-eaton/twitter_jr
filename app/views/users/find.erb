@@ -6,3 +6,10 @@
   @<input type="text" name="handle" placeholder="handle">
   <input type="submit" value="Find User">
 </form>
+<div>
+  <ul>
+  <% @users.each do |user|%>
+  <li> <a href="/users/<%=user.id%>">@<%=user.handle%></a></li>
+  <%end%>
+  </ul>
+</div>

@@ -16,6 +16,7 @@ post '/users/new' do
 end
 
 get '/users/find' do
+  @users=User.all
   erb :'users/find'
 end
 

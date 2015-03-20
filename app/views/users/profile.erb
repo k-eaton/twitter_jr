@@ -9,9 +9,11 @@
 
 <div class="profile_links">
   <ul>
-    <% if current_user && current_user.id != @user.id %>
+
     <li>Followers: <a href="/users/<%= @user.id %>/followers"><%=@user.followers.count %></a></li>
     <li>Followees: <a href="/users/<%= @user.id %>/followees"><%=@user.followees.count %></a></li>
+    <li> <a href="/users/find">Find me some connections- I'm lonely</a></li>
+    <% if current_user && current_user.id != @user.id %>
     <li><form action = "/users/<%=@user.id%>" method="post">
       <input type="submit" value= "<%= is_not_a_follower?(@user) ? 'Follow Me!!': 'Unfollow'%>">
     </form></li>

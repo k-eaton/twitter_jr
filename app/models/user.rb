@@ -44,10 +44,8 @@ end
 
 def toggle_follow(profile_user)
   if Follow.where(user_id: self.id, subscribed_to_id: profile_user.id).empty?
-    "i am in the if block"
     Follow.create(user_id: self.id, subscribed_to_id: profile_user.id)
   else
-    "i am in the else block"
     Follow.where(user_id: self.id, subscribed_to_id: profile_user.id).first.destroy
   end
 end

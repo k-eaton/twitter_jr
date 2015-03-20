@@ -18,4 +18,8 @@ helpers do
    Follow.where(user_id: current_user.id, subscribed_to_id: profile_user.id).empty?
   end
 
+  def is_not_favorited?(input_tweet)
+   Tweet.where(id: input_tweet.id).first.favorites.empty?
+  end
+
 end

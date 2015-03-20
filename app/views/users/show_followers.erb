@@ -2,7 +2,7 @@
     <h1>You are being stalked by the following minions..</h1>
   <ul>
     <%@user.followers.each do |follower|%>
-    <li> <a href="/users/<%=follower.id%>"><%=follower.handle%></a></li>
+    <li> <a href="/users/<%=follower.id%>">@<%=follower.handle%></a></li>
     <%end %>
   </ul>
 </div>

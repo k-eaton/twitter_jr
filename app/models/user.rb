@@ -35,6 +35,6 @@ class User < ActiveRecord::Base
         tweets << tweet
       end
     end
-    tweets
+    tweets.sort { |x, y| y.created_at <=> x.created_at }
   end
 end

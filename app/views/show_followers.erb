@@ -1,4 +1,5 @@
 <div class="container">
+<h1>You are being followed by these fools...</h1>
   <ul>
     <%@user.followers.each do |follower|%>
     <li> <a href="/users/<%=follower.id%>"><%=follower.handle%></a></li>

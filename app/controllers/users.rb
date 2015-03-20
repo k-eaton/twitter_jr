@@ -32,11 +32,6 @@ end
 
 post '/users/:id' do
   @user=User.where(id: params[:id])[0]
-  if @user.id == current_user.id || #if already following
-    "YOU CAN'T FOLLOW YOURSELF"
-    # redirect "/users/#{@user.id}"
-  else
-    Follow.create(user_id: current_user.id, subscribed_to_id: @user.id)
+    Follow.create(user_id: session[:id], subscribed_to_id: @user.id)
     redirect "/users/#{@user.id}"
-  end
 end

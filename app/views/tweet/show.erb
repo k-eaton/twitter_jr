@@ -1,0 +1,15 @@
+<div>
+  <%= @tweet.created_at.strftime('%b %d') %>
+</div>
+
+<div>
+  <%= @tweet.content %>
+</div>
+
+<div>
+  @<%= @tweet.user.handle %>
+</div>
+
+<div>
+  <a href="/tweets/<%= @tweet.id %>/retweet">Retweet</a>
+</div> 
